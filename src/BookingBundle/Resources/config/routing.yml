@@ -1,19 +1,19 @@
 booking_homepage:
     path:     /
-    defaults: { _controller: BookingBundle:Default:index }
+    defaults: { _controller: BookingBundle:Booking:index }
 
 booking_ticketing:
     path:     /ticketing
-    defaults: { _controller: BookingBundle:Default:ticketing}
+    defaults: { _controller: BookingBundle:Booking:ticketing }
 
 booking_ordering:
     path:     /ticketing/ordering
-    defaults: { _controller: BookingBundle:Default:ordering }
+    defaults: { _controller: BookingBundle:Booking:ordering }
 
 booking_checkout:
     path:     /ticketing/ordering/checkout
-    defaults: { _controller: }
+    defaults: { _controller: BookingBundle:Booking:checkout }
 
 booking_paying:
     path:     /paying
-    defaults: { _controller: }
+    defaults: { _controller: BookingBundle:Booking:paying }
