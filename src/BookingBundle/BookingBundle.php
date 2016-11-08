@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace BookingBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class BookingBundle extends Bundle
 {
 }
