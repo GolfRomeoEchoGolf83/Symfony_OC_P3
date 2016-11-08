@@ -1,3 +1,19 @@
 booking_homepage:
     path:     /
     defaults: { _controller: BookingBundle:Default:index }
+
+booking_ticketing:
+    path:     /ticketing
+    defaults: { _controller: BookingBundle:Default:ticketing}
+
+booking_ordering:
+    path:     /ticketing/ordering
+    defaults: { _controller: BookingBundle:Default:ordering }
+
+booking_checkout:
+    path:     /ticketing/ordering/checkout
+    defaults: { _controller: }
+
+booking_paying:
+    path:     /paying
+    defaults: { _controller: }
