@@ -3,6 +3,7 @@
 namespace BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Booking
