@@ -47,6 +47,11 @@ class Ticket
 	 */
 	private $nationality;
 
+	/**
+	 * @var
+	 * @ORM\Column(name="birthDate", type="date")
+	 */
+	private $birthDate;
 
     /**
      * Get id
@@ -152,5 +157,29 @@ class Ticket
     public function getNationality()
     {
         return $this->nationality;
+    }
+
+    /**
+     * Set birthDate
+     *
+     * @param string $birthDate
+     *
+     * @return Ticket
+     */
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthDate
+     *
+     * @return string
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
     }
 }
