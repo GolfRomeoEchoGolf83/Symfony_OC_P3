@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ticket
  *
+ * @ORM\Entity(repositoryClass="BookingBundle\Repository\TicketRepository")
  * @ORM\Table(name="ticket")
- * @ORM\Entity(repositoryClass="BookingBundle\Repository\ticketRepository")
  */
 class Ticket
 {
@@ -37,10 +37,15 @@ class Ticket
 
     /**
      * @var string
-     *
      * @ORM\Column(name="ticketId", type="string", length=255)
      */
     private $ticketId;
+
+	/**
+	 * @var string
+	 * @ORM\Column(name="nationality", type="string", length=255)
+	 */
+	private $nationality;
 
 
     /**
@@ -124,5 +129,28 @@ class Ticket
     {
         return $this->ticketId;
     }
-}
 
+    /**
+     * Set nationality
+     *
+     * @param string $nationality
+     *
+     * @return Ticket
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationality
+     *
+     * @return string
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+}
