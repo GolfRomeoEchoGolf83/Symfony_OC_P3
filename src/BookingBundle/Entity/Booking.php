@@ -25,28 +25,21 @@ class Booking
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="visitingDay", type="date")
+     * @ORM\Column(name="visiting_day", type="date")
      */
     private $visitingDay;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="kindOfTicket", type="integer")
+     * @ORM\Column(name="kind_of_ticket", type="integer")
      */
     private $kindOfTicket;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="emailVisitor", type="string", length=255)
-     */
-    private $emailVisitor;
-
-    /**
      * @var int
      *
-     * @ORM\Column(name="nbTicket", type="integer")
+     * @ORM\Column(name="nb_ticket", type="integer")
      */
     private $nbTicket;
 
