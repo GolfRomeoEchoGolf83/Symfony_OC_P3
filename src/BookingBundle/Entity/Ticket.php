@@ -24,20 +24,20 @@ class Ticket
     /**
      * @var string
      *
-     * @ORM\Column(name="visitorLastName", type="string", length=255)
+     * @ORM\Column(name="visitor_last_name", type="string", length=255)
      */
     private $visitorLastName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="visitorFirstName", type="string", length=255)
+     * @ORM\Column(name="visitor_first_name", type="string", length=255)
      */
     private $visitorFirstName;
 
     /**
      * @var string
-     * @ORM\Column(name="ticketId", type="string", length=255)
+     * @ORM\Column(name="ticket_id", type="string", length=255)
      */
     private $ticketId;
 
@@ -49,9 +49,15 @@ class Ticket
 
 	/**
 	 * @var
-	 * @ORM\Column(name="birthDate", type="date")
+	 * @ORM\Column(name="birth_date", type="date")
 	 */
 	private $birthDate;
+
+	/**
+	 * @var
+	 * @ORM\Column(name="email_visitor", type="string", length=255)
+	 */
+	private $emailVisitor;
 
     /**
      * Get id
@@ -181,5 +187,29 @@ class Ticket
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+    /**
+     * Set emailVisitor
+     *
+     * @param string $emailVisitor
+     *
+     * @return Ticket
+     */
+    public function setEmailVisitor($emailVisitor)
+    {
+        $this->emailVisitor = $emailVisitor;
+
+        return $this;
+    }
+
+    /**
+     * Get emailVisitor
+     *
+     * @return string
+     */
+    public function getEmailVisitor()
+    {
+        return $this->emailVisitor;
     }
 }

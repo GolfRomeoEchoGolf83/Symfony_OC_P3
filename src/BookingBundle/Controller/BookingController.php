@@ -14,6 +14,7 @@ class BookingController extends Controller
      */
     public function indexAction()
     {
+
         return $this->render("@Booking/Booking/index.html.twig");
     }
 
