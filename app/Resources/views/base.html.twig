@@ -12,17 +12,15 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
-    <body>
         {% block body %}
+            <footer>
+                <p>Delta Agency © 2016</p>
+            </footer>
         {% endblock %}
-
-        <footer>
-            <p>Delta Agency © 2016</p>
-        </footer>
 
         {% block javascripts %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
         {% endblock %}
-    </body>
+
 </html>
