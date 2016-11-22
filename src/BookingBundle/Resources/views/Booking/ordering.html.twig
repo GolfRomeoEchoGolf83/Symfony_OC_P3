@@ -1,8 +1,11 @@
 {%  extends "BookingBundle::layout.html.twig"  %}
 
-{%  block title %}
-{%  endblock %}
+{%  block title %}{%  endblock %}
 
 {%  block body %}
-    {{ form(form) }}
+    <h3>Détail des billets</h3>
+    <div class="ordering">
+        {{ form(form) }}
+    </div>
+
 {%  endblock %}
