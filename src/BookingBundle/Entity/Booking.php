@@ -44,7 +44,15 @@ class Booking
     private $nbTicket;
 
 
-    /**
+	public function __construct()
+	{
+		// défintion de la date
+		$this->visitingDay = new \DateTime();
+		// définition du type de billet (1 = jour / 1/2 = demi journée)
+		$this->kindOfTicket = 1;
+	}
+
+	/**
      * Get id
      *
      * @return int
