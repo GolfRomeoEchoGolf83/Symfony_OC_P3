@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class BookingController extends Controller
 {
@@ -39,13 +40,28 @@ class BookingController extends Controller
 		    ->get('form.factory')
 		    ->create(BookingType::class, $booking);
 
-	    /* gestion des erreurs
-	    et des exceptions */
+	    /*
+	     * gestion des erreurs et des exceptions
+	     */
 
 	    // Date de réservation : exception mardi, 0105, 0111, 2512
 	    // Type de réservation : journée ou 1/2 journée à partir de 14h
 	    // Exception : dimanche, jours fériés, > 1000 billets vendus, si > 14h pas de billet journée
 
+
+	    // gestion de l'envoi du formulaire
+	    // si le formulaire est valide
+	    if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+		    // on enregistre l'objet $booking dans la BDD
+		    $em = $this->getDoctrine()->getManager();
+		    $em->persist($booking);
+		    $em->flush();
+
+		    // ajouter un message de validation
+
+		    // redirection vers la page de détail des tickets
+		    return $this->redirectToRoute('booking_ordering');
+	    }
 
 	    // formulaire passé à la vue
 	    return $this->render("BookingBundle:Booking:ticketing.html.twig", array(
