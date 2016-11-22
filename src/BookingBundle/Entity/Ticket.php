@@ -59,7 +59,14 @@ class Ticket
 	 */
 	private $emailVisitor;
 
-    /**
+
+	public function __construct()
+	{
+		// fixer la nationalité sur France
+		$this->nationality = 'Fr';
+	}
+
+	/**
      * Get id
      *
      * @return int

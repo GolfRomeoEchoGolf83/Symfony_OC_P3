@@ -3,6 +3,11 @@
 namespace BookingBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +18,15 @@ class TicketType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('visitorLastName')->add('visitorFirstName')->add('ticketId')        ;
+        $builder
+	        ->add('visitorLastName',        TextType::class)
+	        ->add('visitorFirstName',       TextType::class)
+	        ->add('nationality',            CountryType::class)
+	        ->add('birthDate',              BirthdayType::class)
+	        ->add('emailVisitor',           EmailType::class)
+	        ->add('ticketId',               TextType::class)
+	        // ajout du bouton de soumission vers le paiement
+	        ->add('paying',                 SubmitType::class);
     }
     
     /**

@@ -3,7 +3,9 @@
 namespace BookingBundle\Controller;
 
 use BookingBundle\Entity\Booking;
+use BookingBundle\Entity\Ticket;
 use BookingBundle\Form\BookingType;
+use BookingBundle\Form\TicketType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -33,22 +35,22 @@ class BookingController extends Controller
 	    // création objet Booking
 	    $booking = new Booking();
 	    // creation du formulaire
-	    $form = $this->get('form.factory')->create(BookingType::class, $booking);
+	    $form = $this
+		    ->get('form.factory')
+		    ->create(BookingType::class, $booking);
 
 	    /* gestion des erreurs
 	    et des exceptions */
+
+	    // Date de réservation : exception mardi, 0105, 0111, 2512
+	    // Type de réservation : journée ou 1/2 journée à partir de 14h
+	    // Exception : dimanche, jours fériés, > 1000 billets vendus, si > 14h pas de billet journée
 
 
 	    // formulaire passé à la vue
 	    return $this->render("BookingBundle:Booking:ticketing.html.twig", array(
 	    	'form' => $form->createView(),
 	    ));
-
-	    // Date de réservation : exception mardi, 0105, 0111, 2512
-
-	    // Type de réservation : journée ou 1/2 journée à partir de 14h
-
-	    // Exception : dimanche, jours fériés, > 1000 billets vendus, si > 14h pas de billet journée
     }
 
 	/**
@@ -57,8 +59,21 @@ class BookingController extends Controller
 	 */
     public function orderingAction()
     {
-        // on récupère les données du visiteur
-        return $this->render("BookingBundle:Booking:ordering.html.twig");
+	    // création objet Ticket
+	    $ticket = new Ticket();
+	    // création du formulaire
+	    $form = $this
+		    ->get('form.factory')
+		    ->create(TicketType::class, $ticket);
+
+	    /* gestion des erreurs
+	    et des exceptions */
+
+
+	    // formulaire passé à la vue
+        return $this->render("BookingBundle:Booking:ordering.html.twig", array(
+        	'form' => $form->createView(),
+        ));
     }
 
 	/**
