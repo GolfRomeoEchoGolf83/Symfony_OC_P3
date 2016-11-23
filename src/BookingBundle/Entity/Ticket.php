@@ -3,6 +3,7 @@
 namespace BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraint as Assert;
 
 /**
  * ticket
@@ -25,6 +26,11 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="visitor_last_name", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre nom ne peut contenir de chiffre")
      */
     private $visitorLastName;
 
@@ -32,6 +38,12 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="visitor_first_name", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre prénom ne peut contenir de chiffre")
+     * )
      */
     private $visitorFirstName;
 
@@ -50,12 +62,16 @@ class Ticket
 	/**
 	 * @var
 	 * @ORM\Column(name="birth_date", type="date")
+	 * @Assert\NotBlank()
+	 * @Assert\Date(message="La date saisie n'est pas valide")
 	 */
 	private $birthDate;
 
 	/**
 	 * @var
 	 * @ORM\Column(name="email_visitor", type="string", length=255)
+	 * @Assert\NotBlank()
+	 * @Assert\Email(message = "L'adresse saisie ne correspond pas à un email")
 	 */
 	private $emailVisitor;
 

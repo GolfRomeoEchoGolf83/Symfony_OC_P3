@@ -26,6 +26,8 @@ class Booking
      * @var \DateTime
      *
      * @ORM\Column(name="visiting_day", type="date")
+     * @Assert\Date(message="La date saisie n'est pas valide")
+     * @Assert\Range(min="now")
      */
     private $visitingDay;
 
@@ -33,6 +35,7 @@ class Booking
      * @var int
      *
      * @ORM\Column(name="kind_of_ticket", type="integer")
+     * @Assert\NotBlank()
      */
     private $kindOfTicket;
 
@@ -40,6 +43,12 @@ class Booking
      * @var int
      *
      * @ORM\Column(name="nb_ticket", type="integer")
+     * @Assert\Range(
+     *     min=1,
+     *     max=1000,
+     *     minMessage="Vous devez commander au moins un billet",
+     *     maxMessage="Vous ne pouvez commander plus de 1000 billets,
+     * )
      */
     private $nbTicket;
 
