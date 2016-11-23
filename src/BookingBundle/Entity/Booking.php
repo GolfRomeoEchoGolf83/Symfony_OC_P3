@@ -27,31 +27,31 @@ class Booking
      * @var \DateTime
      *
      * @ORM\Column(name="visiting_day", type="date")
-     * @Assert\Date(message="La date saisie n'est pas valide")
-     * @Assert\Range(min="now")
      */
+    // @Assert\Date(message="La date saisie n'est pas valide")
+	// @Assert\Range(min="now")
     private $visitingDay;
 
     /**
-     * @var int
+     * @var boolean
      *
-     * @ORM\Column(name="kind_of_ticket", type="boolean")
-     * @Assert\NotBlank()
-     * @Assert\Choice({"journée", "demi-journée"})
+     * @ORM\Column(name="kind_of_ticket", type="string")
      */
+    // @Assert\NotBlank()
+	// @Assert\Choice({"journée", "demi-journée"})
     private $kindOfTicket;
 
     /**
      * @var int
      *
      * @ORM\Column(name="nb_ticket", type="integer")
-     * @Assert\Range(
-     *     min=1,
-     *     max=1000,
-     *     minMessage="Vous devez commander au moins un billet",
-     *     maxMessage="Vous ne pouvez commander plus de 1000 billets,
-     * )
      */
+    //  * @Assert\Range(
+	// *     min=1,
+	// *     max=1000,
+	// *     minMessage="Vous devez commander au moins un billet",
+	// *     maxMessage="Vous ne pouvez commander plus de 1000 billets
+	//     * )
     private $nbTicket;
 
 
@@ -100,7 +100,7 @@ class Booking
     /**
      * Set kindOfTicket
      *
-     * @param integer $kindOfTicket
+     * @param string $kindOfTicket
      *
      * @return Booking
      */
@@ -114,7 +114,7 @@ class Booking
     /**
      * Get kindOfTicket
      *
-     * @return int
+     * @return string
      */
     public function getKindOfTicket()
     {

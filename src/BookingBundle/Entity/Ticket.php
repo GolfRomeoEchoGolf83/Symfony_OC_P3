@@ -26,6 +26,9 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="visitor_last_name", type="string", length=255)
+     */
+
+    /*
      * @Assert\NotBlank()
      * @Assert\Regex(
      *     pattern="/\d/",
@@ -38,7 +41,10 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="visitor_first_name", type="string", length=255)
-     * @Assert\NotBlank()
+     */
+
+    /*
+     *  @Assert\NotBlank()
      * @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
@@ -62,7 +68,10 @@ class Ticket
 	/**
 	 * @var
 	 * @ORM\Column(name="birth_date", type="date")
-	 * @Assert\NotBlank()
+	 */
+
+	/*
+	 * * @Assert\NotBlank()
 	 * @Assert\Date(message="La date saisie n'est pas valide")
 	 */
 	private $birthDate;
@@ -70,7 +79,10 @@ class Ticket
 	/**
 	 * @var
 	 * @ORM\Column(name="email_visitor", type="string", length=255)
-	 * @Assert\NotBlank()
+	 */
+
+	/*
+	 *  @Assert\NotBlank()
 	 * @Assert\Email(message = "L'adresse saisie ne correspond pas à un email")
 	 */
 	private $emailVisitor;
