@@ -4,6 +4,7 @@ namespace BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Validator\Constraint as Assert;
 
 /**
  * Booking
@@ -34,7 +35,7 @@ class Booking
     /**
      * @var int
      *
-     * @ORM\Column(name="kind_of_ticket", type="integer")
+     * @ORM\Column(name="kind_of_ticket", type="boolean")
      * @Assert\NotBlank()
      * @Assert\Choice({"journée", "demi-journée"})
      */
