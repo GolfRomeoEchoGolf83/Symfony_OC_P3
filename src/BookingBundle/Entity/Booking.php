@@ -36,6 +36,7 @@ class Booking
      *
      * @ORM\Column(name="kind_of_ticket", type="integer")
      * @Assert\NotBlank()
+     * @Assert\Choice({"journée", "demi-journée"})
      */
     private $kindOfTicket;
 
