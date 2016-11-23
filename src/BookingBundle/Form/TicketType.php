@@ -24,7 +24,6 @@ class TicketType extends AbstractType
 	        ->add('nationality',            CountryType::class)
 	        ->add('birthDate',              BirthdayType::class)
 	        ->add('emailVisitor',           EmailType::class)
-	        ->add('ticketId',               TextType::class)
 	        // ajout du bouton de soumission vers le paiement
 	        ->add('paying',                 SubmitType::class);
     }
