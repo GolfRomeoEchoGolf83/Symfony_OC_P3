@@ -87,6 +87,19 @@ class Ticket
 	 */
 	private $emailVisitor;
 
+	/**
+	 * @var
+	 * @ORM\Column(name="discount", type="string", length=255)
+	 */
+	private $discount;
+
+
+	/**
+	 * @var
+	 * @ORM\Column(name="price", type="integer")
+	 */
+	private $price;
+
 
 	public function __construct()
 	{
@@ -246,5 +259,53 @@ class Ticket
     public function getEmailVisitor()
     {
         return $this->emailVisitor;
+    }
+
+    /**
+     * Set discount
+     *
+     * @param string $discount
+     *
+     * @return Ticket
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+
+        return $this;
+    }
+
+    /**
+     * Get discount
+     *
+     * @return string
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     *
+     * @return Ticket
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
