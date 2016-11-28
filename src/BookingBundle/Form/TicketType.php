@@ -21,9 +21,16 @@ class TicketType extends AbstractType
         $builder
 	        ->add('visitorLastName',        TextType::class)
 	        ->add('visitorFirstName',       TextType::class)
-	        ->add('nationality',            CountryType::class)
-	        ->add('birthDate',              BirthdayType::class)
-	        ->add('emailVisitor',           EmailType::class)
+	        ->add('nationality',            CountryType::class, array(
+	        	'preferred_choices'     => array(
+	        		'FR',
+			        'IT'
+		        )
+	        ))
+	        ->add('birthDate',              BirthdayType::class, array(
+	        	'widget'                => 'text',
+		        'format'                => 'dd-MM-yyyy'
+	        ))
 	        // ajout du bouton de soumission vers le paiement
 	        ->add('paying',                 SubmitType::class);
     }

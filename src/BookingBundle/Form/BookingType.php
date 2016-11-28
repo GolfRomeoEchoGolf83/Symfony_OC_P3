@@ -2,9 +2,12 @@
 
 namespace BookingBundle\Form;
 
+use Doctrine\DBAL\Types\StringType;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,11 +23,12 @@ class BookingType extends AbstractType
         $builder
 	        ->add('visitingDay',        DateType::class)
 	        ->add('kindOfTicket',       ChoiceType::class, array(
-	        	'choices'   => array(
+	        	'choices'       => array(
 	        		'journée'       => true,
 			        'demi-journée'  => false
 		        )
 	        ))
+	        ->add('emailVisitor',       EmailType::class)
 	        ->add('nbTicket',           IntegerType::class)
 	        // ajout du bouton de soumission du formulaire
 	        ->add('ordering',           SubmitType::class);
