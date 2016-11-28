@@ -4,12 +4,12 @@ namespace BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Booking
  *
- * @ORM\Table(name="booking")
+ * @ORM\Table()
  * @ORM\Entity(repositoryClass="BookingBundle\Repository\BookingRepository")
  */
 class Booking
@@ -17,7 +17,7 @@ class Booking
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -26,7 +26,7 @@ class Booking
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="visiting_day", type="date")
+     * @ORM\Column(type="date")
      */
     // @Assert\Date(message="La date saisie n'est pas valide")
 	// @Assert\Range(min="now")
@@ -35,7 +35,7 @@ class Booking
     /**
      * @var boolean
      *
-     * @ORM\Column(name="kind_of_ticket", type="string")
+     * @ORM\Column(type="string")
      */
     // @Assert\NotBlank()
 	// @Assert\Choice({"journée", "demi-journée"})
@@ -44,7 +44,7 @@ class Booking
     /**
      * @var int
      *
-     * @ORM\Column(name="nb_ticket", type="integer")
+     * @ORM\Column(type="integer")
      */
     //  * @Assert\Range(
 	// *     min=1,
@@ -53,6 +53,15 @@ class Booking
 	// *     maxMessage="Vous ne pouvez commander plus de 1000 billets
 	//     * )
     private $nbTicket;
+
+	/**
+	 * @var
+	 * @ORM\Column(type="string", length=255)
+	 */
+	// @Assert\NotBlank()
+	// @Assert\Email(message = "L'adresse saisie ne correspond pas à un email")
+
+    private $emailVisitor;
 
 
 	public function __construct()

@@ -9,14 +9,14 @@ use Symfony\Component\Validator\Constraint as Assert;
  * ticket
  *
  * @ORM\Entity(repositoryClass="BookingBundle\Repository\TicketRepository")
- * @ORM\Table(name="ticket")
+ * @ORM\Table()
  */
 class Ticket
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -25,7 +25,7 @@ class Ticket
     /**
      * @var string
      *
-     * @ORM\Column(name="visitor_last_name", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
 
     /*
@@ -40,11 +40,11 @@ class Ticket
     /**
      * @var string
      *
-     * @ORM\Column(name="visitor_first_name", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
 
     /*
-     *  @Assert\NotBlank()
+     * @Assert\NotBlank()
      * @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
@@ -55,7 +55,7 @@ class Ticket
 
     /**
      * @var string
-     * @ORM\Column(name="ticket_id", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $ticketId;
 
@@ -67,38 +67,34 @@ class Ticket
 
 	/**
 	 * @var
-	 * @ORM\Column(name="birth_date", type="date")
+	 * @ORM\Column(type="date")
 	 */
 
 	/*
-	 * * @Assert\NotBlank()
+	 * @Assert\NotBlank()
 	 * @Assert\Date(message="La date saisie n'est pas valide")
 	 */
 	private $birthDate;
 
-	/**
+    /**
 	 * @var
-	 * @ORM\Column(name="email_visitor", type="string", length=255)
-	 */
-
-	/*
-	 *  @Assert\NotBlank()
-	 * @Assert\Email(message = "L'adresse saisie ne correspond pas à un email")
-	 */
-	private $emailVisitor;
-
-	/**
-	 * @var
-	 * @ORM\Column(name="discount", type="string", length=255)
+	 * @ORM\Column(type="string", length=255)
 	 */
 	private $discount;
 
 
 	/**
 	 * @var
-	 * @ORM\Column(name="price", type="integer")
+	 * @ORM\Column(type="integer")
 	 */
 	private $price;
+
+
+	/**
+	 * @var
+	 * @ORM\ManyToOne(targetEntity="BookingBundle\Entity\Booking")
+	 */
+	private $booking;
 
 
 	public function __construct()
@@ -237,29 +233,6 @@ class Ticket
         return $this->birthDate;
     }
 
-    /**
-     * Set emailVisitor
-     *
-     * @param string $emailVisitor
-     *
-     * @return Ticket
-     */
-    public function setEmailVisitor($emailVisitor)
-    {
-        $this->emailVisitor = $emailVisitor;
-
-        return $this;
-    }
-
-    /**
-     * Get emailVisitor
-     *
-     * @return string
-     */
-    public function getEmailVisitor()
-    {
-        return $this->emailVisitor;
-    }
 
     /**
      * Set discount
@@ -307,5 +280,53 @@ class Ticket
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set ticket
+     *
+     * @param \BookingBundle\Entity\Booking $ticket
+     *
+     * @return Ticket
+     */
+    public function setTicket(\BookingBundle\Entity\Booking $ticket)
+    {
+        $this->ticket = $ticket;
+
+        return $this;
+    }
+
+    /**
+     * Get ticket
+     *
+     * @return \BookingBundle\Entity\Booking
+     */
+    public function getTicket()
+    {
+        return $this->ticket;
+    }
+
+    /**
+     * Set booking
+     *
+     * @param \BookingBundle\Entity\Booking $booking
+     *
+     * @return Ticket
+     */
+    public function setBooking(\BookingBundle\Entity\Booking $booking = null)
+    {
+        $this->booking = $booking;
+
+        return $this;
+    }
+
+    /**
+     * Get booking
+     *
+     * @return \BookingBundle\Entity\Booking
+     */
+    public function getBooking()
+    {
+        return $this->booking;
     }
 }
