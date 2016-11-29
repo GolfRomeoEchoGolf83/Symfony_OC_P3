@@ -19,17 +19,18 @@
     {# Script jQuery #}
 {%  endblock %}
 
-{%  javascripts  %}
-    <script>
-        $(function() {
-            $(".js_datepicker").datepicker({
-                dateFormat: 'yyyy-mm-dd';
-                beforeShowDay: function (d) {
-                    
-                }
+{%  block javascript %}
+    {%  javascripts  %}
+        <script>
+            $(function() {
+                $(".js_datepicker").datepicker({
+                    dateFormat: 'yyyy-mm-dd';
+                    beforeShowDay: function (d) {
+                    }
+                });
             });
-        });
-    </script>
-{% endjavascript %}
+        </script>
+    {%  endjavascript %}
+{% endblock %}
 
 
