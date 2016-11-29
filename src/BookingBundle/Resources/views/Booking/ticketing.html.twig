@@ -19,14 +19,17 @@
     {# Script jQuery #}
 {%  endblock %}
 
-{%  block javascripts  %}
+{%  javascripts  %}
     <script>
-        $( function() {
-                $( "#bookingbundle_booking_visitingDay").datepicker();
-            }
-        );
+        $(function() {
+            $(".js_datepicker").datepicker({
+                dateFormat: 'yyyy-mm-dd';
+                beforeShowDay: function (d) {
+                    
+                }
+            });
+        });
     </script>
-
-{% endblock %}
+{% endjavascript %}
 
 
