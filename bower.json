@@ -1,0 +1,21 @@
+{
+  "name": "P3V2",
+  "homepage": "https://github.com/GolfRomeoEchoGolf83/Symfony_OC_P3",
+  "authors": [
+    "GolfRomeoEchoGolf83 <gregdecroix@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.1"
+  }
+}
