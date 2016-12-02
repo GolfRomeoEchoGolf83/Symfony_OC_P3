@@ -62,14 +62,15 @@ class Ticket
 	/**
 	 * @var string
 	 * @ORM\Column(name="nationality", type="string", length=255)
+	 * @ORM\OneToOne()
 	 */
 	private $nationality;
 
 	/**
 	 * @var
 	 * @ORM\Column(type="date")
+	 * @ORM\OneToOne(targetEntity="BookingBundle\Entity\Booking", cascade={"persist"})
 	 */
-
 	/*
 	 * @Assert\NotBlank()
 	 * @Assert\Date(message="La date saisie n'est pas valide")
@@ -79,6 +80,7 @@ class Ticket
     /**
 	 * @var
 	 * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="BookingBundle\Entity\Booking", cascade={"persist"})
 	 */
 	private $discount;
 
@@ -86,6 +88,7 @@ class Ticket
 	/**
 	 * @var
 	 * @ORM\Column(type="integer")
+	 * @ORM\OneToOne(targetEntity="BookingBundle\Entity\Booking", cascade={"persist"})
 	 */
 	private $price;
 

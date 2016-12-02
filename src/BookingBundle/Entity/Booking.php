@@ -35,7 +35,7 @@ class Booking
     /**
      * @var boolean
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="boolean")
      */
     // @Assert\NotBlank()
 	// @Assert\Choice({"journée", "demi-journée"})
@@ -109,7 +109,7 @@ class Booking
     /**
      * Set kindOfTicket
      *
-     * @param string $kindOfTicket
+     * @param boolean $kindOfTicket
      *
      * @return Booking
      */
@@ -123,7 +123,7 @@ class Booking
     /**
      * Get kindOfTicket
      *
-     * @return string
+     * @return boolean
      */
     public function getKindOfTicket()
     {
