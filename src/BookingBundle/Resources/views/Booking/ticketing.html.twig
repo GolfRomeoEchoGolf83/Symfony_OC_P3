@@ -13,24 +13,9 @@
         {{ form_row(form.emailVisitor) }}
         {{ form_row(form.nbTicket) }}
         {{ form_row(form.ordering) }}
-
     </div>
-
-    {# Script jQuery #}
 {%  endblock %}
 
-{%  block javascript %}
-    {%  javascripts  %}
-        <script>
-            $(function() {
-                $(".js_datepicker").datepicker({
-                    dateFormat: 'yyyy-mm-dd';
-                    beforeShowDay: function (d) {
-                    }
-                });
-            });
-        </script>
-    {%  endjavascript %}
-{% endblock %}
+
 
 
